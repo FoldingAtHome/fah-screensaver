@@ -1,0 +1,32 @@
+import glob
+
+Import('*')
+
+env.Append(CPPPATH = ['#/src'])
+
+# List subdirectories of 'fah/screensaver/' which contain source code here.
+subdirs = ['']
+
+# Source
+src = []
+for dir in subdirs:
+    src += Glob('fah/screensaver/' + dir + '/*.cpp')
+
+prog_src = ['FAHScreensaver.cpp']
+
+# Resource files
+if env['PLATFORM'] == 'win32':
+    prog_src.append(env.RES('fah/screensaver/resources/FAHScreensaver.rc'))
+
+
+# Build lib
+lib = env.Library('fah-screensaver', src)
+prog_src.append(lib)
+
+
+# Main program
+if env['PLATFORM'] == 'win32': env.Replace(PROGSUFFIX = '.scr')
+prog = env.Program('#/FAHScreensaver', prog_src)
+
+pair = (prog, lib)
+Return('pair')
