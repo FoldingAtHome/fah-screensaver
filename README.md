@@ -50,8 +50,8 @@ root directories.
  http://downloads.sourceforge.net/project/freeglut/freeglut/freeglut-2.6.0.tar.gz
     gzip -d "%HOMEPATH%\My Documents\Downloads\freeglut-2.6.0.tar.gz"
     tar xvf "%HOMEPATH%\My Documents\Downloads\freeglut-2.6.0.tar"
-    # Open \build\freeglut-2.6.0\VisualStudio2008Static\freeglut.sln in MSVC 2008
-    # Build in Release mode
+    \# Open \build\freeglut-2.6.0\VisualStudio2008Static\freeglut.sln in MSVC 2008
+    \# Build in Release mode
     cd freeglut-2.6.0
     cp VisualStudio2008Static\Release\freeglut_static.lib .
 
