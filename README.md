@@ -43,7 +43,7 @@ root directories.
     bzip2 -d "%HOMEPATH%\My Documents\Downloads\freetype-2.4.4.tar.bz2"
     tar xvf "%HOMEPATH%\My Documents\Downloads\freetype-2.4.4.tar"
     cd freetype-2.4.4
-    # Build freetype-2.4.4\builds\win32\vc2008\freetype.sln
+    \# Build freetype-2.4.4\builds\win32\vc2008\freetype.sln
     cp objs\win32\vc2008\freetype244MT_D.lib freetype.lib
 
  8. Install freeglut
