@@ -38,27 +38,28 @@ root directories.
     See: https://github.com/CauldronDevelopmentLLC/cbang#prerequisites
 
  7. Install freetype
-
     http://download.savannah.gnu.org/releases/freetype/freetype-2.4.4.tar.bz2
-    bzip2 -d "%HOMEPATH%\My Documents\Downloads\freetype-2.4.4.tar.bz2"
-    tar xvf "%HOMEPATH%\My Documents\Downloads\freetype-2.4.4.tar"
-    cd freetype-2.4.4
-    \# Build freetype-2.4.4\builds\win32\vc2008\freetype.sln
-    cp objs\win32\vc2008\freetype244MT_D.lib freetype.lib
+
+      bzip2 -d "%HOMEPATH%\My Documents\Downloads\freetype-2.4.4.tar.bz2"
+      tar xvf "%HOMEPATH%\My Documents\Downloads\freetype-2.4.4.tar"
+      cd freetype-2.4.4
+      # Build freetype-2.4.4\builds\win32\vc2008\freetype.sln
+      cp objs\win32\vc2008\freetype244MT_D.lib freetype.lib
 
  8. Install freeglut
- http://downloads.sourceforge.net/project/freeglut/freeglut/freeglut-2.6.0.tar.gz
-    gzip -d "%HOMEPATH%\My Documents\Downloads\freeglut-2.6.0.tar.gz"
-    tar xvf "%HOMEPATH%\My Documents\Downloads\freeglut-2.6.0.tar"
-    \# Open \build\freeglut-2.6.0\VisualStudio2008Static\freeglut.sln in MSVC 2008
-    \# Build in Release mode
-    cd freeglut-2.6.0
-    cp VisualStudio2008Static\Release\freeglut_static.lib .
+    http://downloads.sourceforge.net/project/freeglut/freeglut/freeglut-2.6.0.tar.gz
+
+      gzip -d "%HOMEPATH%\My Documents\Downloads\freeglut-2.6.0.tar.gz"
+      tar xvf "%HOMEPATH%\My Documents\Downloads\freeglut-2.6.0.tar"
+      # Open \build\freeglut-2.6.0\VisualStudio2008Static\freeglut.sln in MSVC 2008
+      # Build in Release mode
+      cd freeglut-2.6.0
+      cp VisualStudio2008Static\Release\freeglut_static.lib .
 
  10. Build the package with scons
 
-    cd fah-viewer
-    scons
+      cd fah-viewer
+      scons
 
 
 # Windows Installation
