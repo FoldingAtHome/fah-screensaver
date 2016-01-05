@@ -10,11 +10,8 @@ local or remote FAHClients and visualize the running simulations.
 See http://folding.stanford.edu/
 
 
-# Debian Linux Build Instructions
-TODO
-
-# Linux Install Instructions
-TODO
+# Build Instructions
+Build instructions are the same as for [fah-viewer](https://github.com/FoldingAtHome/fah-viewer)
 
 # Windows Build Instructions
 
