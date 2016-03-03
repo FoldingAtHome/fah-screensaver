@@ -15,7 +15,7 @@ for dir in subdirs:
 prog_src = ['FAHScreensaver.cpp']
 
 # Resource files
-if env['PLATFORM'] == 'win32':
+if win32:
     prog_src.append(env.RES('fah/screensaver/resources/FAHScreensaver.rc'))
 
 
@@ -23,9 +23,10 @@ if env['PLATFORM'] == 'win32':
 lib = env.Library('fah-screensaver', src)
 prog_src.append(lib)
 
+if int(env.get('cross_mingw')): prog_src.append('scrnsave.c')
 
 # Main program
-if env['PLATFORM'] == 'win32': env.Replace(PROGSUFFIX = '.scr')
+if win32: env.Replace(PROGSUFFIX = '.scr')
 prog = env.Program('#/FAHScreensaver', prog_src)
 
 pair = (prog, lib)

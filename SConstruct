@@ -21,6 +21,8 @@ version = env.FAHClientVersion()
 # Config vars
 env.Replace(BUILD_INFO_NS = 'FAH::BuildInfo')
 
+win32 = env['PLATFORM'] == 'win32' or int(env.get('cross_mingw'))
+
 if not env.GetOption('clean'):
     conf.CBConfig('compiler')
     conf.CBConfig('libfah')
@@ -30,23 +32,23 @@ if not env.GetOption('clean'):
     pkg_config = '"%s"' % os.environ.get('PKG_CONFIG', 'pkg-config')
 
     # X
-    if env['PLATFORM'] == 'posix':
+    if not win32:
         conf.CBRequireHeader('X11/X.h')
         conf.CBRequireHeader('X11/Xlib.h')
         conf.CBRequireLib('X11')
 
     # Win32
-    if env['PLATFORM'] == 'win32':
-        conf.CBRequireLib('scrnsave');
-        conf.CBRequireLib('ComCtl32');
+    if win32:
+        conf.CBRequireLib('scrnsave')
+        conf.CBRequireLib('comctl32')
 
-    if env['PLATFORM'] == 'posix':
+    if not win32:
         env.Append(PREFER_DYNAMIC = 'bz2 z m glut X11'.split())
 
 conf.Finish()
 
 # Main program
-Export('env')
+Export('env win32')
 prog, lib = \
     SConscript('src/FAHScreensaver.scons', variant_dir = 'build', duplicate = 0)
 Default(prog)
@@ -71,7 +73,7 @@ local or remote FAHClients and visualize the running simulations.'''
 
 if 'package' in COMMAND_LINE_TARGETS:
     # Don't package Windows here
-    if env['PLATFORM'] == 'win32':
+    if win32:
         f = open('package.txt', 'w');
         f.write('none');
         f.close()
