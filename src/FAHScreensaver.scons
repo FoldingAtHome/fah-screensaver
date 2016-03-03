@@ -18,12 +18,12 @@ prog_src = ['FAHScreensaver.cpp']
 if win32:
     prog_src.append(env.RES('fah/screensaver/resources/FAHScreensaver.rc'))
 
+# Add local scrnsave lib
+if int(env.get('cross_mingw')): prog_src.append('scrnsave.c')
 
 # Build lib
 lib = env.Library('fah-screensaver', src)
 prog_src.append(lib)
-
-if int(env.get('cross_mingw')): prog_src.append('scrnsave.c')
 
 # Main program
 if win32: env.Replace(PROGSUFFIX = '.scr')
