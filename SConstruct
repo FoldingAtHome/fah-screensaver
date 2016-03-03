@@ -21,12 +21,13 @@ version = env.FAHClientVersion()
 # Config vars
 env.Replace(BUILD_INFO_NS = 'FAH::BuildInfo')
 
-win32 = env['PLATFORM'] == 'win32' or int(env.get('cross_mingw'))
+win32 = env['PLATFORM'] == 'win32' or int(env.get('cross_mingw', 0))
 
 if not env.GetOption('clean'):
     conf.CBConfig('compiler')
     conf.CBConfig('libfah')
     conf.CBConfig('fah-viewer')
+    env.CBDefine('GLEW_STATIC')
     env.CBDefine('USING_CBANG') # Using CBANG macro namespace
 
     pkg_config = '"%s"' % os.environ.get('PKG_CONFIG', 'pkg-config')

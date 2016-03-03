@@ -123,7 +123,7 @@ int APIENTRY WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR CmdLine,
       HWND hParent;
 
       fChildPreview = TRUE;
-      while (ISSPACE(*++p)) contiue;
+      while (ISSPACE(*++p)) continue;
       hParent = (HWND) (unsigned long long)_toul(p);
       if (hParent && IsWindow(hParent)) return LaunchScreenSaver(hParent);
 
