@@ -27,6 +27,7 @@ prog_src.append(lib)
 
 # Main program
 if win32: env.Replace(PROGSUFFIX = '.scr')
+if int(env.get('cross_mingw', 0)): env.Append(LINKFLAGS = ['-mwindows'])
 prog = env.Program('#/FAHScreensaver', prog_src)
 
 pair = (prog, lib)
