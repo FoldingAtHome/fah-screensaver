@@ -46,6 +46,8 @@ if not env.GetOption('clean'):
     if not win32:
         env.Append(PREFER_DYNAMIC = 'bz2 z m glut X11'.split())
 
+    env.CBConfConsole() # Build console app on Windows
+
 conf.Finish()
 
 # Main program

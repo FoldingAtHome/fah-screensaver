@@ -26,11 +26,7 @@
 
 \******************************************************************************/
 
-#ifdef _WIN32
-#pragma comment(linker, "/subsystem:\"windows\" /entry:\"mainCRTStartup\"")
-
-// NOTE: scrnsave.lib already contains main()
-#else // _WIN32
+#ifndef _WIN32
 
 #include <fah/screensaver/XScreensaverApp.h>
 
