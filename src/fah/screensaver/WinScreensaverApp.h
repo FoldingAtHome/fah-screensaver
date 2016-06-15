@@ -67,4 +67,3 @@ namespace FAH {
 
 #endif // _WIN32
 #endif // FAH_WIN_SCREENSAVER_APP_H
-

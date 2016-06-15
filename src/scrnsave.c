@@ -346,9 +346,9 @@ static void TerminateScreenSaver(HWND hWnd) {
 /// Register screen saver window class and call user supplied hook.
 static BOOL RegisterClasses(void) {
   WNDCLASS cls;
-  
-  cls.hCursor = 0; 
-  cls.hIcon = LoadIcon(hMainInstance, MAKEINTATOM(ID_APP)); 
+
+  cls.hCursor = 0;
+  cls.hIcon = LoadIcon(hMainInstance, MAKEINTATOM(ID_APP));
   cls.lpszMenuName = 0;
   cls.lpszClassName = CLASS_SCRNSAVE;
   cls.hbrBackground = GetStockObject(BLACK_BRUSH);
@@ -357,7 +357,7 @@ static BOOL RegisterClasses(void) {
   cls.lpfnWndProc = (WNDPROC) SysScreenSaverProc;
   cls.cbWndExtra = 0;
   cls.cbClsExtra = 0;
-  
+
   if (!RegisterClass(&cls)) return FALSE;
 
   return RegisterDialogClasses(hMainInstance);
@@ -367,7 +367,7 @@ static BOOL RegisterClasses(void) {
 void WINAPI ScreenSaverChangePassword(HWND hParent) {
   // load Master Password Router (MPR)
   HINSTANCE hMpr = LoadLibrary(TEXT("MPR.DLL"));
-  
+
   if (hMpr) {
     CHPWDPROC ChangePassword;
     ChangePassword = (CHPWDPROC) GetProcAddress(hMpr, szPwdChangePassword);

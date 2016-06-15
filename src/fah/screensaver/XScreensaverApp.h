@@ -51,4 +51,3 @@ namespace FAH {
 }
 
 #endif // FAH_SCREENSAVER_XSCREENSAVER_APP_H
-
