@@ -11,6 +11,7 @@
 #include <windows.h>
 #include <scrnsave.h>
 #include <regstr.h>
+#include <stdint.h>
 
 // screen saver window class
 #define CLASS_SCRNSAVE TEXT("WindowsScreenSaverClass")
@@ -124,7 +125,7 @@ int APIENTRY WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR CmdLine,
 
       fChildPreview = TRUE;
       while (ISSPACE(*++p)) continue;
-      hParent = (HWND) (unsigned long long)_toul(p);
+      hParent = (HWND)(uintptr_t)_toul(p);
       if (hParent && IsWindow(hParent)) return LaunchScreenSaver(hParent);
 
       return 0;
@@ -142,7 +143,7 @@ int APIENTRY WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR CmdLine,
       HWND hParent;
 
       while (ISSPACE(*++p)) continue;
-      hParent = (HWND) (unsigned long long) _toul(p);
+      hParent = (HWND)(uintptr_t)_toul(p);
       if (!hParent || !IsWindow(hParent)) hParent = GetForegroundWindow();
       ScreenSaverChangePassword(hParent);
 
