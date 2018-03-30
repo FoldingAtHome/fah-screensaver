@@ -44,7 +44,7 @@ if not env.GetOption('clean'):
         conf.CBRequireLib('comctl32')
 
     if not win32:
-        env.Append(PREFER_DYNAMIC = 'bz2 z m glut X11'.split())
+        env.Append(PREFER_DYNAMIC = 'bz2 z m GLU glut X11'.split())
 
     env.CBConfConsole() # Build console app on Windows
 
@@ -105,14 +105,15 @@ if 'package' in COMMAND_LINE_TARGETS:
         deb_section = 'science',
         deb_depends = \
             'libx11-6, libc6, bzip2, zlib1g, libexpat1, libgl1-mesa-glx, ' \
-            'xscreensaver',
+            'libglu1, freeglut3, xscreensaver',
         deb_priority = 'optional',
         deb_recommends = 'fahclient (=%s), fahcontrol (=%s), fahviewer (=%s)' \
             % (version, version, version),
 
         rpm_license = 'GPL+2',
         rpm_group = 'Applications/Multimedia',
-        rpm_requires = 'libX11, mesa-libGL, expat, bzip2-libs, xscreensaver',
+        rpm_requires = 'libX11, mesa-libGL, expat, bzip2-libs, freeglut, ' + \
+            'mesa-libGLU, xscreensaver',
         rpm_build = 'rpm/build',
 
         app_id = 'edu.stanford.folding.fahscreensaver',
@@ -126,4 +127,3 @@ if 'package' in COMMAND_LINE_TARGETS:
 
     AlwaysBuild(pkg)
     env.Alias('package', pkg)
-
