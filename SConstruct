@@ -69,7 +69,7 @@ AlwaysBuild(tar)
 # Package
 description = \
 '''Folding@home is a distributed computing project using volunteered
-computer resources run by Pandegroup of Stanford University.
+computer resources.
 
 This package contains the 3D screensaver.  It can connect to
 local or remote FAHClients and visualize the running simulations.'''
@@ -89,13 +89,13 @@ if 'package' in COMMAND_LINE_TARGETS:
         version = version,
         maintainer = 'Joseph Coffland <joseph@cauldrondevelopment.com>',
         vendor = 'Folding@home',
-        url = 'http://folding.stanford.edu/',
+        url = 'https://foldingathome.org/',
         license = 'copyright',
-        bug_url = 'https://fah.stanford.edu/projects/FAH/',
+        bug_url = 'https://foldingathome.org/bugs',
         summary = 'Folding@home 3D Screensaver',
         description = description,
         prefix = '/usr',
-        copyright = 'Copyright 2010-2012, Stanford University',
+        copyright = 'Copyright 2010-2018, foldingathome.org',
 
         documents = docs,
         programs = [str(prog[0])],
@@ -116,7 +116,7 @@ if 'package' in COMMAND_LINE_TARGETS:
             'mesa-libGLU, xscreensaver',
         rpm_build = 'rpm/build',
 
-        app_id = 'edu.stanford.folding.fahscreensaver',
+        app_id = 'org.foldingathome.fahscreensaver',
         app_resources = [['osx/Resources/', '.']],
         pkg_resources = [['osx/Resources/', '.']],
         app_signature = '????',

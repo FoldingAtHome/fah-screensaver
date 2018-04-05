@@ -2,12 +2,12 @@ Folding@home Screensaver
 ========================
 
 Folding@home is a distributed computing project using volunteered
-computer resources run by Pandegroup of Stanford University.
+computer resources.
 
 This package contains the 3D screensaver.  It can connect to
 local or remote FAHClients and visualize the running simulations.
 
-See http://folding.stanford.edu/
+See http://foldingathome.org/
 
 
 # Build Instructions
