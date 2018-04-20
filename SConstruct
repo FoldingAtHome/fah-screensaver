@@ -91,7 +91,7 @@ if 'package' in COMMAND_LINE_TARGETS:
         vendor = 'Folding@home',
         url = 'https://foldingathome.org/',
         license = 'copyright',
-        bug_url = 'https://foldingathome.org/bugs',
+        bug_url = 'https://apps.foldingathome.org/bugs',
         summary = 'Folding@home 3D Screensaver',
         description = description,
         prefix = '/usr',
