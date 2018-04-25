@@ -7,7 +7,7 @@ computer resources.
 This package contains the 3D screensaver.  It can connect to
 local or remote FAHClients and visualize the running simulations.
 
-See http://foldingathome.org/
+See https://foldingathome.org/
 
 
 # Build Instructions
