@@ -6,7 +6,7 @@ try:
 except Exception, e:
     raise Exception, 'CBANG_HOME not set?\n' + str(e)
 
-env.CBLoadTools('compiler cbang dist libfah fah-client-version fah-viewer ' +
+env.CBLoadTools('compiler cbang dist fah-client-version fah-viewer ' +
                 'packager')
 
 # Override mostly_static to default True
@@ -25,7 +25,6 @@ win32 = env['PLATFORM'] == 'win32' or int(env.get('cross_mingw', 0))
 
 if not env.GetOption('clean'):
     conf.CBConfig('compiler')
-    conf.CBConfig('libfah')
     conf.CBConfig('fah-viewer')
     env.CBDefine('GLEW_STATIC')
     env.CBDefine('USING_CBANG') # Using CBANG macro namespace
