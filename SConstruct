@@ -29,20 +29,15 @@ if not env.GetOption('clean'):
     env.CBDefine('GLEW_STATIC')
     env.CBDefine('USING_CBANG') # Using CBANG macro namespace
 
-    pkg_config = '"%s"' % os.environ.get('PKG_CONFIG', 'pkg-config')
-
-    # X
-    if not win32:
-        conf.CBRequireHeader('X11/X.h')
-        conf.CBRequireHeader('X11/Xlib.h')
-        conf.CBRequireLib('X11')
-
     # Win32
     if win32:
         conf.CBRequireLib('scrnsave')
         conf.CBRequireLib('comctl32')
 
-    if not win32:
+    else: # X
+        conf.CBRequireHeader('X11/X.h')
+        conf.CBRequireHeader('X11/Xlib.h')
+        conf.CBRequireLib('X11')
         env.Append(PREFER_DYNAMIC = 'bz2 z m GLU glut X11'.split())
 
     env.CBConfConsole() # Build console app on Windows
