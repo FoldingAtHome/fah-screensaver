@@ -33,6 +33,7 @@ if not env.GetOption('clean'):
     if win32:
         conf.CBRequireLib('scrnsave')
         conf.CBRequireLib('comctl32')
+        conf.CBRequireLib('advapi32')
 
     else: # X
         conf.CBRequireHeader('X11/X.h')
