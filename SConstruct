@@ -3,8 +3,8 @@ import os
 env = Environment(ENV = os.environ)
 try:
     env.Tool('config', toolpath = [os.environ.get('CBANG_HOME')])
-except Exception, e:
-    raise Exception, 'CBANG_HOME not set?\n' + str(e)
+except Exception as e:
+    raise Exception('CBANG_HOME not set?\n' + str(e))
 
 env.CBLoadTools('compiler cbang dist fah-client-version fah-viewer ' +
                 'packager')
@@ -33,6 +33,7 @@ if not env.GetOption('clean'):
     if win32:
         conf.CBRequireLib('scrnsave')
         conf.CBRequireLib('comctl32')
+        conf.CBRequireLib('advapi32')
 
     else: # X
         conf.CBRequireHeader('X11/X.h')
@@ -116,7 +117,7 @@ if 'package' in COMMAND_LINE_TARGETS:
         app_signature = '????',
         app_other_info = {'CFBundleIconFile': 'FAHScreensaver.icns'},
         app_programs = [str(prog[0])],
-        pkg_files = [['osx/FAHScreensaver', 'usr/bin/', 0755]],
+        pkg_files = [['osx/FAHScreensaver', 'usr/bin/', 0o0755]],
         )
 
     AlwaysBuild(pkg)
